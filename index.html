@@ -12,16 +12,18 @@
 		const buttonChangeFormat = document.getElementById("btnDateFormat");
 		const buttonSwitchHours = document.getElementById("btnHoursFormat");
 
+		const defaultFormat = "MMMM d, yyyy,";
+		const apiFormat = "yyyy-MM-dd'T'HH:mm:ss";
+
 		const picker = new DatePicker({
 			oteContainer,
-			defaultDateTime: "2022-05-30T13:00:00",
+			defaultDateTime: "2022-05-16T17:03:05",
 			hoursFormat: 0,
-			dateFormat: 'YYYY-MM-DD h:mm:ss aa',
+			dateFormat: defaultFormat,
 			minutesIntervals: 15
 		});
 
-
-		buttonChangeFormat.addEventListener("click", () => picker.format = "MM-dd-yyyy");
+		buttonChangeFormat.addEventListener("click", () => picker.format = picker._dateFormat == defaultFormat ? apiFormat : defaultFormat);
 		buttonSwitchHours.addEventListener("click", () => picker.hours = picker.hours ? false : "24h");
 
 	</script>
@@ -33,7 +35,7 @@
 	<h3> DateTimePicker </h3>
 	<div id="datePicker"></div>
 	<br>
-	<button id="btnDateFormat">Set new date format</button>
+	<button id="btnDateFormat">Swap date format</button>
 	<button id="btnHoursFormat">Toggle hours formating 12/24</button>
 </body>
 

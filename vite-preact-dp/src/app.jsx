@@ -25,12 +25,14 @@ export function App({
 }
 
 function getFormat(dateFormat, hoursFormat) {
-  return hoursFormat
-    ? {
-        timeFormat: "HH:mm",
-        dateFormat: `${dateFormat} HH:mm`,
-      }
-    : {
-        dateFormat: `${dateFormat} hh:mm aa`,
-      };
+  return dateFormat == "yyyy-MM-dd'T'HH:mm:ss";
+    ? { dateFormat: dateFormat },
+    : hoursFormat
+        ? {
+            timeFormat: "HH:mm",
+            dateFormat: `${dateFormat} HH:mm`,
+          }
+        : {
+            dateFormat: `${dateFormat} h:mm aa`,
+          };
 }

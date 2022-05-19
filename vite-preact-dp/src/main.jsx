@@ -10,14 +10,14 @@ class PreactDataPicker {
   constructor({
     oteContainer,
     defaultDateTime,
-    boolean,
-    format,
+    hoursFormat,
+    dateFormat,
     minutesIntervals,
   }) {
     this._oteContainer = oteContainer;
     this._selectedDate = new Date(defaultDateTime) || new Date();
-    this[dateFormat] = format || "yyyy-mm-dd";
-    this[hoursFormat] = boolean || false;
+    this[dateFormat] = dateFormat || "yyyy-MM-dd";
+    this[hoursFormat] = hoursFormat || false;
     this[intervals] = minutesIntervals || 5;
     this._render();
   }
